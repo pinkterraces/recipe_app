@@ -54,3 +54,9 @@ class RecipeModelTest(TestCase):
         recipe = Recipe.objects.get(id=1)
         #Check id is not null
         self.assertIsNotNone(recipe.id)  
+
+    def test_get_absolute_url(self):
+       book = Recipe.objects.get(id=1)
+       #get_absolute_url() should take you to the detail page of book #1
+       #and load the URL /books/list/1
+       self.assertEqual(Recipe.get_absolute_url(), '/recipes/1')
